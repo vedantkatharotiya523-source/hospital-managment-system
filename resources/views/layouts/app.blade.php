@@ -30,24 +30,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!-- Mobile Metas -->
     <meta name="viewport" content="initial-scale=1, maximum-scale=1">
-    <!-- Site Icons -->
+      <!-- Site Icons -->
     <link rel="shortcut icon" href="{{ $iconUrl }}" type="image/x-icon" />
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="{{ config('app.url') }}css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
     <!-- Site CSS -->
-    <link rel="stylesheet" href="{{  config('app.url') }}css/style.css">
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <!-- Colors CSS -->
-    <link rel="stylesheet" href="{{  config('app.url') }}css/colors.css">
+    <link rel="stylesheet" href="{{ asset('css/colors.css') }}">
     <!-- ALL VERSION CSS -->
-    <link rel="stylesheet" href="{{  config('app.url') }}css/versions.css">
+    <link rel="stylesheet" href="{{ asset('css/versions.css') }}">
     <!-- Responsive CSS -->
-    <link rel="stylesheet" href="{{  config('app.url') }}css/responsive.css">
+    <link rel="stylesheet" href="{{ asset('css/responsive.css') }}">
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="{{  config('app.url') }}css/custom.css">
+    <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
+    
     <!-- Modernizer for Portfolio -->
-    <script src="js/modernizer.js"></script>
-    <!-- [if lt IE 9] -->
+    <script src="{{ asset('js/modernizer.js') }}"></script>
+
     @livewireStyles
 </head>
 
