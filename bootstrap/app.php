@@ -15,18 +15,6 @@ $app = new Illuminate\Foundation\Application(
     $_ENV['APP_BASE_PATH'] ?? dirname(__DIR__)
 );
 
-// Dynamic writable path allocation for Render / Production cloud environment
-if (env('APP_ENV') === 'production') {
-    $runtimeCachePath = '/tmp/bootstrap-cache';
-    if (!file_exists($runtimeCachePath)) {
-        mkdir($runtimeCachePath, 0777, true);
-    }
-    
-    // Changing standard paths to use /tmp path structures
-    $app->useBootstrapCachePath($runtimeCachePath);
-    $_ENV['LIVEWIRE_MANIFEST_PATH'] = '/tmp/livewire-manifest.php';
-}
-
 /*
 |--------------------------------------------------------------------------
 | Bind Important Interfaces
