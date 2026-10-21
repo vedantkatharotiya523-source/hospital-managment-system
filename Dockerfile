@@ -28,7 +28,8 @@ WORKDIR /var/www/html
 COPY . .
 
 # डिपेंडेंसी इंस्टॉल करना
-RUN composer install --no-dev --optimize-autoloader
+RUN composer install --no-dev --optimize-autoloader --ignore-platform-reqs
+
 
 # स्टोरेज फ़ोल्डर को परमिशन देना
 RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
