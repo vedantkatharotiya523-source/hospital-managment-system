@@ -42,5 +42,8 @@ RUN echo '<VirtualHost *:10000>\n\
 
 # अपाचे को पोर्ट 10000 सुनना सिखाएं
 RUN sed -i 's/Listen 80/Listen 10000/' /etc/apache2/ports.conf
+# Apache के डिफ़ॉल्ट कॉन्फ़िगरेशन को इनेबल करना
+RUN a2ensite 000-default.conf
+
 EXPOSE 10000
 
