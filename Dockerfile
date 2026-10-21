@@ -28,7 +28,8 @@ RUN composer install --no-dev --optimize-autoloader --ignore-platform-reqs
 RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
 
 # 🟢 Apache को Laravel के public फ़ोल्डर से चलाने के लिए क्लीन सेटअप
-RUN echo '<VirtualHost *:8080>\n\
+# 🟢 अपाचे को पोर्ट 10000 पर सेट करना (रेंडर का डिफ़ॉल्ट पोर्ट)
+RUN echo '<VirtualHost *:10000>\n\
     DocumentRoot /var/www/html/public\n\
     <Directory /var/www/html/public>\n\
         Options Indexes FollowSymLinks\n\
@@ -39,6 +40,7 @@ RUN echo '<VirtualHost *:8080>\n\
     CustomLog ${APACHE_LOG_DIR}/access.log combined\n\
 </VirtualHost>' > /etc/apache2/sites-available/000-default.conf
 
-# पोर्ट बदलना
-RUN sed -i 's/Listen 80/Listen 8080/' /etc/apache2/ports.conf
-EXPOSE 8080
+# अपाचे को पोर्ट 10000 सुनना सिखाएं
+RUN sed -i 's/Listen 80/Listen 10000/' /etc/apache2/ports.conf
+EXPOSE 10000
+
