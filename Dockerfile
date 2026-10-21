@@ -1,6 +1,5 @@
 FROM php:8.4-apache
 
-
 # जरूरी एक्सटेंशन इंस्टॉल करना
 RUN apt-get update && apt-get install -y \
     libpng-dev \
@@ -15,16 +14,6 @@ RUN apt-get update && apt-get install -y \
 # Apache Rewrite मॉड्यूल चालू करना (Laravel URL के लिए)
 RUN a2enmod rewrite
 
-# Apache का रूट डायरेक्टरी बदलना (public फ़ोल्डर पर सेट करना)
-ENV APACHE_DOCUMENT_ROOT /var/www/html/public
-RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-available/*.conf
-RUN sed -ri -e 's!/var/www/!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/apache2.conf /etc/apache2/conf-available/*.conf
-
-RUN echo '<Directory /var/www/html/public>\n\
-    Options Indexes FollowSymLinks\n\
-    AllowOverride All\n\
-    Require all granted\n\
-</Directory>' >> /etc/apache2/apache2.conf
 # कंपोजर इंस्टॉल करना
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
@@ -35,10 +24,21 @@ COPY . .
 # डिपेंडेंसी इंस्टॉल करना
 RUN composer install --no-dev --optimize-autoloader --ignore-platform-reqs
 
-
 # स्टोरेज फ़ोल्डर को परमिशन देना
 RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
 
+# 🟢 Apache को Laravel के public फ़ोल्डर से चलाने के लिए क्लीन सेटअप
+RUN echo '<VirtualHost *:8080>\n\
+    DocumentRoot /var/www/html/public\n\
+    <Directory /var/www/html/public>\n\
+        Options Indexes FollowSymLinks\n\
+        AllowOverride All\n\
+        Require all granted\n\
+    </Directory>\n\
+    ErrorLog ${APACHE_LOG_DIR}/error.log\n\
+    CustomLog ${APACHE_LOG_DIR}/access.log combined\n\
+</VirtualHost>' > /etc/apache2/sites-available/000-default.conf
 
+# पोर्ट बदलना
 RUN sed -i 's/Listen 80/Listen 8080/' /etc/apache2/ports.conf
 EXPOSE 8080
