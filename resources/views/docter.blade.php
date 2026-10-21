@@ -1,42 +1,66 @@
 @extends('layouts.app')
 
 @section('content')
-<div id="doctors" class="parallax section db" data-stellar-background-ratio="0.4" style="background:#fff;" data-scroll-id="doctors" tabindex="-1">
+<div id="doctors" class="section">
     <div class="container">
         <div class="heading">
-            <span class="icon-logo"><img src="{{ $iconUrl ?? asset('images/icon-logo.png') }}" alt="#"></span>
+            <span class="icon-logo"><img src="{{ $iconUrl ?? asset('images/icon-logo.png') }}" alt="Doctor Icon"></span>
             <h2>Our Specialist Doctors</h2>
-            <p class="lead">Distinguished Medical Specialists & Surgeons Serving Rajkot and Saurashtra with Decades of Experience.</p>
+            <p class="lead">Distinguished Medical Specialists & Surgeons Serving Rajkot and Saurashtra with Decades of Clinical Experience.</p>
         </div>
 
-        <div class="row dev-list text-center">
+        <div class="doctor-cards-grid">
             @php
                 $dbDoctors = \App\Models\doctor::with('employ')->get();
             @endphp
 
             @forelse ($dbDoctors as $doc)
-                <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 wow fadeIn" data-wow-duration="1s" data-wow-delay="0.2s" style="margin-bottom: 30px;">
-                    <div class="widget clearfix" style="border: 1px solid #e1e8ed; border-radius: 8px; padding: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); height: 100%;">
-                        <img src="{{ asset($doc->employ->image ?? 'images/doctor_01.jpg') }}" alt="{{ $doc->employ->name ?? 'Doctor' }}" class="img-responsive img-rounded" style="height: 250px; width: 100%; object-fit: cover;">
-                        <div class="widget-title" style="margin-top: 15px;">
-                            <h3 style="color: #0071d1; margin-bottom: 4px;">{{ $doc->employ->name ?? 'Specialist' }}</h3>
-                            <small style="color: #28a745; font-weight: bold; font-size: 13px;">{{ $doc->employ->qualification ?? 'MBBS, MD' }}</small>
+                @php
+                    $docImg = asset('images/doctor_01.jpg');
+                    if (!empty($doc->employ?->image)) {
+                        if (\Illuminate\Support\Str::startsWith($doc->employ->image, ['http://', 'https://'])) {
+                            $docImg = $doc->employ->image;
+                        } elseif (\Illuminate\Support\Str::startsWith($doc->employ->image, 'images/')) {
+                            $docImg = asset($doc->employ->image);
+                        } else {
+                            $docImg = asset('storage/' . $doc->employ->image);
+                        }
+                    }
+                @endphp
+                <div class="doctor-card-item">
+                    <div class="modern-doc-card">
+                        <div class="doc-img-wrap">
+                            <img src="{{ $docImg }}" 
+                                 alt="{{ $doc->employ->name ?? 'Doctor' }}" 
+                                 onerror="this.src='{{ asset('images/doctor_01.jpg') }}'">
                         </div>
-                        <p style="color: #555; margin-top: 10px; font-size: 13px;">
-                            Consultant at Lifecare Super Speciality Hospital, Rajkot. Available for daily OPD consultations and specialized treatments.
-                        </p>
-                        <div style="border-top: 1px solid #eee; padding-top: 10px; font-size: 12px; color: #777;">
-                            <i class="fa fa-phone"></i> {{ $doc->employ->phone ?? '+91 98250 12345' }}
-                        </div>
-                        <div class="footer-social" style="margin-top: 12px;">
-                            <a href="#" class="btn grd1"><i class="fa fa-phone"></i> Call</a>
-                            <a href="{{ url('/#appointment') }}" class="btn grd1"><i class="fa fa-calendar"></i> Book OPD</a>
+                        <div class="doc-body">
+                            <h3 class="doc-name">{{ $doc->employ->name ?? 'Specialist Doctor' }}</h3>
+                            <span class="doc-qualification">
+                                <i class="fa fa-graduation-cap"></i> {{ $doc->employ->qualification ?? 'MBBS, MD' }}
+                            </span>
+                            <p class="doc-desc">
+                                Senior consultant at LifeCare Super Speciality Hospital. Available for regular OPD consultations.
+                            </p>
+                            <div class="doc-actions">
+                                <a href="tel:{{ $doc->employ->phone ?? '+919825012345' }}" class="btn-doc-call">
+                                    <i class="fa fa-phone"></i> Call
+                                </a>
+                                <a href="javascript:void(0)" 
+                                   class="btn-doc-book" 
+                                   data-toggle="modal" 
+                                   data-target="#bookOpdModal"
+                                   data-doctor="{{ $doc->employ->name ?? $doc->name }}">
+                                    <i class="fa fa-calendar-check-o"></i> Book OPD
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
             @empty
-                <div class="col-12 text-center">
-                    <p class="lead">Doctors list is currently being updated. Please contact hospital reception for OPD timings.</p>
+                <div class="col-12 text-center" style="padding: 60px 0; width: 100%;">
+                    <h3 class="text-muted">Doctors list is currently being updated.</h3>
+                    <p>Please contact hospital reception for OPD timings and doctor schedules.</p>
                 </div>
             @endforelse
         </div>

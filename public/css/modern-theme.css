@@ -1,0 +1,1350 @@
+/* ==========================================================================
+   Modern Healthcare Theme - LifeCare Hospital
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+:root {
+    --primary: #0071d1;
+    --primary-dark: #0056a3;
+    --primary-light: #e0f0ff;
+    --secondary: #10b981;
+    --secondary-dark: #059669;
+    --accent: #0ea5e9;
+    --text-heading: #0f172a;
+    --text-body: #334155;
+    --text-muted: #64748b;
+    --bg-light: #f8fafc;
+    --bg-card: #ffffff;
+    --border-color: #e2e8f0;
+    --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.06);
+    --shadow-md: 0 4px 14px rgba(15, 23, 42, 0.08);
+    --shadow-lg: 0 12px 28px rgba(15, 23, 42, 0.12);
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+    --radius-full: 9999px;
+}
+
+body {
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+    color: var(--text-body);
+    background-color: #fbfcfe;
+    overflow-x: hidden;
+}
+
+/* ==========================================================================
+   CRITICAL: Compact, Sticky Header (Never Cuts Off Content)
+   ========================================================================== */
+header.modern-site-header {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 1000 !important;
+    width: 100% !important;
+    background: #ffffff !important;
+    box-shadow: 0 4px 20px rgba(15, 23, 42, 0.07) !important;
+    float: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* 1. Main Navigation Bar (Clean Single Sleek Header) */
+.main-navbar-bar {
+    background: #ffffff !important;
+    padding: 10px 0 !important;
+    border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+}
+
+.header-flex-container {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    padding-left: 24px !important;
+    padding-right: 24px !important;
+    max-width: 1440px;
+    margin: 0 auto;
+    position: relative;
+}
+
+/* Brand & Emergency Group */
+.header-brand-group {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.modern-brand {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none !important;
+}
+
+.modern-brand img.brand-img {
+    max-height: 46px;
+    width: auto;
+    object-fit: contain;
+    transition: transform 0.2s ease;
+}
+
+.modern-brand:hover img.brand-img {
+    transform: scale(1.02);
+}
+
+/* Integrated 24x7 Emergency Pill (Header Highlight) */
+.header-emergency-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #fff1f2;
+    border: 1px solid #fecdd3;
+    padding: 4px 12px 4px 6px;
+    border-radius: var(--radius-full);
+    text-decoration: none !important;
+    transition: all 0.2s ease;
+}
+
+.header-emergency-pill:hover {
+    background: #ffe4e6;
+    border-color: #fda4af;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.15);
+}
+
+.emergency-pulse {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.85; }
+}
+
+.emergency-info {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.15;
+}
+
+.emergency-badge-sub {
+    font-size: 9.5px;
+    font-weight: 800;
+    color: #e11d48;
+    letter-spacing: 0.5px;
+}
+
+.emergency-phone-num {
+    font-size: 12.5px;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+/* Navigation Menu */
+.modern-nav {
+    display: flex;
+    align-items: center;
+}
+
+.modern-nav-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.modern-nav-list li a {
+    display: inline-block;
+    padding: 8px 12px;
+    color: var(--text-heading) !important;
+    font-size: 14.5px;
+    font-weight: 600;
+    text-decoration: none !important;
+    border-radius: var(--radius-sm);
+    transition: all 0.2s ease;
+    position: relative;
+}
+
+.modern-nav-list li a:hover {
+    color: var(--primary) !important;
+    background: var(--primary-light);
+}
+
+.modern-nav-list li.active a {
+    color: var(--primary) !important;
+    background: var(--primary-light);
+    font-weight: 700;
+}
+
+/* Right Header Actions (OPD, Email, Staff Login & Book OPD) */
+.header-right-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.header-opd-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #f8fafc;
+    border: 1px solid var(--border-color);
+    padding: 4px 10px;
+    border-radius: var(--radius-full);
+}
+
+.header-opd-badge i {
+    color: var(--primary);
+    font-size: 13px;
+}
+
+.opd-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.15;
+}
+
+.opd-label {
+    font-size: 9px;
+    font-weight: 700;
+    color: var(--text-muted);
+    letter-spacing: 0.4px;
+}
+
+.opd-time {
+    font-size: 11.5px;
+    font-weight: 600;
+    color: var(--text-heading);
+}
+
+.header-email-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #f8fafc;
+    border: 1px solid var(--border-color);
+    padding: 6px 12px;
+    border-radius: var(--radius-full);
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-muted) !important;
+    text-decoration: none !important;
+    transition: all 0.2s ease;
+}
+
+.header-email-badge:hover {
+    background: var(--primary-light);
+    border-color: var(--primary);
+    color: var(--primary-dark) !important;
+}
+
+.btn-staff-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #0f172a;
+    color: #ffffff !important;
+    padding: 7px 14px;
+    border-radius: var(--radius-full);
+    font-size: 12.5px;
+    font-weight: 600;
+    text-decoration: none !important;
+    transition: all 0.2s ease;
+    border: 1px solid #1e293b;
+    white-space: nowrap;
+}
+
+.btn-staff-pill:hover {
+    background: #1e293b;
+    color: #38bdf8 !important;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.15);
+}
+
+.btn-book-nav {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%) !important;
+    color: #ffffff !important;
+    padding: 7px 16px !important;
+    border-radius: var(--radius-full) !important;
+    font-size: 13.5px !important;
+    font-weight: 600 !important;
+    text-decoration: none !important;
+    box-shadow: 0 4px 12px rgba(0, 113, 209, 0.25) !important;
+    transition: all 0.25s ease !important;
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+}
+
+.btn-book-nav:hover {
+    box-shadow: 0 6px 18px rgba(0, 113, 209, 0.35) !important;
+    transform: translateY(-1px);
+    color: #ffffff !important;
+}
+
+/* Mobile Nav Toggle - High Contrast & Finger-Friendly */
+.modern-nav-toggler {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    width: 42px;
+    height: 38px;
+    background: #f1f5f9 !important;
+    border: 1.5px solid #cbd5e1 !important;
+    border-radius: var(--radius-sm) !important;
+    padding: 0 !important;
+    cursor: pointer;
+    transition: all 0.2s ease !important;
+}
+
+.modern-nav-toggler:hover,
+.modern-nav-toggler:focus {
+    background: #e2e8f0 !important;
+    border-color: var(--primary) !important;
+    outline: none !important;
+}
+
+.modern-nav-toggler .toggler-bar {
+    display: block;
+    width: 20px;
+    height: 2px;
+    background-color: #0f172a;
+    border-radius: 2px;
+    transition: all 0.2s ease;
+}
+
+/* Mobile Drawer Info & Menu Behavior */
+@media (max-width: 991px) {
+    .modern-nav-toggler {
+        display: inline-flex !important;
+    }
+    .header-flex-container {
+        flex-wrap: wrap !important;
+        padding-left: 16px !important;
+        padding-right: 16px !important;
+    }
+    .modern-nav {
+        order: 3;
+        width: 100% !important;
+        flex: 0 0 100% !important;
+        max-width: 100% !important;
+        margin-top: 12px;
+    }
+    .modern-nav .navbar-collapse {
+        background: #ffffff !important;
+        border-radius: var(--radius-md) !important;
+        box-shadow: 0 12px 30px rgba(15, 23, 42, 0.12) !important;
+        border: 1px solid var(--border-color) !important;
+        padding: 14px !important;
+        width: 100% !important;
+        float: none !important;
+        margin: 0 !important;
+    }
+    .modern-nav-list {
+        flex-direction: column !important;
+        align-items: stretch !important;
+        width: 100% !important;
+        gap: 4px !important;
+    }
+    .modern-nav-list li {
+        width: 100% !important;
+        float: none !important;
+    }
+    .modern-nav-list li a {
+        width: 100% !important;
+        display: flex !important;
+        align-items: center !important;
+        padding: 12px 16px !important;
+        font-size: 15px !important;
+        font-weight: 600 !important;
+        border-radius: var(--radius-sm) !important;
+        transition: background 0.2s ease, color 0.2s ease !important;
+    }
+    .modern-nav-list li a:hover,
+    .modern-nav-list li.active a {
+        background: var(--primary-light) !important;
+        color: var(--primary) !important;
+    }
+    .modern-nav-list li a i {
+        margin-right: 8px !important;
+        font-size: 16px !important;
+    }
+    .modern-nav-list li .btn-staff-pill {
+        display: block !important;
+        width: 100% !important;
+        text-align: center !important;
+        padding: 12px !important;
+        font-size: 14px !important;
+        box-sizing: border-box !important;
+    }
+}
+
+@media (max-width: 575px) {
+    .modern-brand img.brand-img {
+        max-height: 40px !important;
+    }
+}
+
+/* ==========================================================================
+   Page Content Reset (Starts directly below header, never clipped)
+   ========================================================================== */
+main#main {
+    display: block;
+    position: relative;
+    width: 100%;
+    min-height: calc(100vh - 400px);
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* Standard Section Padding */
+.section {
+    padding: 60px 0 !important;
+    background: transparent;
+}
+
+/* Section Headings */
+.heading {
+    text-align: center;
+    margin-bottom: 45px;
+    position: relative;
+}
+
+.heading .icon-logo {
+    display: inline-block;
+    margin-bottom: 12px;
+}
+
+.heading .icon-logo img {
+    height: 38px;
+    width: auto;
+}
+
+.heading h2 {
+    font-size: 32px !important;
+    font-weight: 800 !important;
+    color: var(--text-heading) !important;
+    margin-bottom: 10px !important;
+    letter-spacing: -0.5px;
+}
+
+.heading p.lead {
+    font-size: 16px !important;
+    color: var(--text-muted) !important;
+    max-width: 680px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* ==========================================================================
+   Modern Cards: Departments, Doctors, Services
+   ========================================================================== */
+
+/* Modern Department Card */
+.modern-dept-card {
+    background: #ffffff;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+}
+
+.modern-dept-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+    border-color: #cbd5e1;
+}
+
+.dept-img-wrap {
+    height: 200px;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    background: #f1f5f9;
+}
+
+.dept-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.modern-dept-card:hover .dept-img-wrap img {
+    transform: scale(1.06);
+}
+
+.dept-block-tag {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: rgba(15, 23, 42, 0.85);
+    backdrop-filter: blur(4px);
+    color: #ffffff;
+    padding: 3px 10px;
+    border-radius: var(--radius-full);
+    font-size: 11.5px;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.dept-body {
+    padding: 22px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.dept-title {
+    font-size: 19px;
+    font-weight: 700;
+    color: var(--text-heading);
+    margin: 0 0 10px 0;
+    line-height: 1.3;
+}
+
+.dept-desc {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-bottom: 16px;
+    flex-grow: 1;
+}
+
+.dept-footer {
+    border-top: 1px solid var(--border-color);
+    padding-top: 14px;
+    margin-top: auto;
+    font-size: 13px;
+    color: var(--text-body);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.dept-hod-pill {
+    background: var(--primary-light);
+    color: var(--primary-dark);
+    padding: 3px 10px;
+    border-radius: var(--radius-sm);
+    font-weight: 600;
+    font-size: 12px;
+}
+
+/* Modern Doctor Card */
+.modern-doc-card {
+    background: #ffffff;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.modern-doc-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.doc-img-wrap {
+    height: 240px;
+    width: 100%;
+    overflow: hidden;
+    background: #f8fafc;
+}
+
+.doc-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.modern-doc-card:hover .doc-img-wrap img {
+    transform: scale(1.05);
+}
+
+.doc-body {
+    padding: 22px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.doc-name {
+    font-size: 18.5px;
+    font-weight: 700;
+    color: var(--text-heading);
+    margin-bottom: 4px;
+}
+
+.doc-qualification {
+    color: var(--secondary-dark);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    margin-bottom: 12px;
+    display: inline-block;
+}
+
+.doc-desc {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.5;
+    margin-bottom: 16px;
+}
+
+.doc-actions {
+    display: flex;
+    gap: 8px;
+    margin-top: auto;
+}
+
+.btn-doc-call {
+    flex: 1;
+    background: #f1f5f9;
+    color: var(--text-heading);
+    border: 1px solid var(--border-color);
+    padding: 8px 12px;
+    border-radius: var(--radius-sm);
+    font-size: 12.5px;
+    font-weight: 600;
+    text-decoration: none !important;
+    transition: all 0.2s ease;
+}
+
+.btn-doc-call:hover {
+    background: #e2e8f0;
+    color: #0f172a;
+}
+
+.btn-doc-book {
+    flex: 1;
+    background: var(--primary);
+    color: #ffffff !important;
+    border: none;
+    padding: 8px 12px;
+    border-radius: var(--radius-sm);
+    font-size: 12.5px;
+    font-weight: 600;
+    text-decoration: none !important;
+    transition: all 0.2s ease;
+}
+
+.btn-doc-book:hover {
+    background: var(--primary-dark);
+}
+
+/* Modern Service Widget */
+.serv {
+    background: #ffffff !important;
+    border-radius: var(--radius-md) !important;
+    padding: 24px 20px !important;
+    border: 1px solid var(--border-color) !important;
+    box-shadow: var(--shadow-sm) !important;
+    margin-bottom: 24px !important;
+    transition: all 0.3s ease !important;
+    height: calc(100% - 24px);
+}
+
+.serv:hover {
+    transform: translateY(-4px) !important;
+    box-shadow: var(--shadow-md) !important;
+    border-color: #cbd5e1 !important;
+}
+
+.icon-service {
+    width: 60px !important;
+    height: 60px !important;
+    background: var(--primary-light) !important;
+    border-radius: var(--radius-md) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin-bottom: 16px !important;
+}
+
+.icon-service img {
+    height: 32px !important;
+    width: auto !important;
+}
+
+.serv h4 {
+    font-size: 16px !important;
+    font-weight: 700 !important;
+    color: var(--text-heading) !important;
+    margin-bottom: 8px !important;
+}
+
+.serv p {
+    font-size: 13.5px !important;
+    color: var(--text-muted) !important;
+    line-height: 1.5 !important;
+}
+
+/* Modern Appointment Form Card */
+.appointment-form {
+    background: #ffffff !important;
+    border-radius: var(--radius-lg) !important;
+    box-shadow: var(--shadow-lg) !important;
+    border: 1px solid var(--border-color) !important;
+    padding: 30px 25px !important;
+}
+
+.appointment-form h3 {
+    background: transparent !important;
+    color: var(--text-heading) !important;
+    font-size: 22px !important;
+    font-weight: 800 !important;
+    padding: 0 0 15px 0 !important;
+    border-bottom: 2px solid var(--primary-light) !important;
+    margin-bottom: 20px !important;
+}
+
+.appointment-form h3 span {
+    color: var(--primary) !important;
+}
+
+.appointment-form .form-control {
+    border-radius: var(--radius-sm) !important;
+    border: 1px solid var(--border-color) !important;
+    height: 44px !important;
+    padding: 8px 14px !important;
+    font-size: 14px !important;
+    color: var(--text-heading) !important;
+    box-shadow: none !important;
+}
+
+.appointment-form .form-control:focus {
+    border-color: var(--primary) !important;
+    box-shadow: 0 0 0 3px rgba(0, 113, 209, 0.15) !important;
+}
+
+/* ==========================================================================
+   Modern Footer (Clean Slate Aesthetic)
+   ========================================================================== */
+footer#footer {
+    background: #0f172a !important;
+    color: #94a3b8 !important;
+    padding: 60px 0 30px !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+footer#footer h3 {
+    color: #f8fafc !important;
+    font-size: 16px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.5px;
+    margin-bottom: 18px !important;
+    text-transform: uppercase;
+}
+
+footer#footer p {
+    color: #94a3b8 !important;
+    font-size: 13.5px !important;
+    line-height: 1.6;
+}
+
+footer#footer a {
+    color: #cbd5e1 !important;
+    transition: color 0.2s ease;
+}
+
+footer#footer a:hover {
+    color: #38bdf8 !important;
+}
+
+.footer-info p i {
+    color: #38bdf8;
+    margin-right: 8px;
+}
+
+.copyright-area {
+    background: #020617 !important;
+    color: #64748b !important;
+    padding: 20px 0 !important;
+    font-size: 13px !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.copyright-area a {
+    color: #94a3b8 !important;
+}
+
+.copyright-area a:hover {
+    color: #38bdf8 !important;
+}
+
+.social-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.social-links li a {
+    width: 34px;
+    height: 34px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #cbd5e1 !important;
+    transition: all 0.2s ease;
+}
+
+.social-links li a:hover {
+    background: var(--primary);
+    color: #ffffff !important;
+    transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   Doctor Cards Flexbox Grid (Resolves awkward float hanging)
+   ========================================================================== */
+.doctor-cards-grid {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    margin-right: -15px !important;
+    margin-left: -15px !important;
+}
+
+.doctor-card-item {
+    flex: 0 0 25% !important;
+    max-width: 25% !important;
+    padding: 0 15px !important;
+    margin-bottom: 30px !important;
+    display: flex !important;
+}
+
+@media (max-width: 1199px) {
+    .doctor-card-item {
+        flex: 0 0 33.333% !important;
+        max-width: 33.333% !important;
+    }
+}
+
+@media (max-width: 991px) {
+    .doctor-card-item {
+        flex: 0 0 50% !important;
+        max-width: 50% !important;
+    }
+}
+
+@media (max-width: 575px) {
+    .doctor-card-item {
+        flex: 0 0 100% !important;
+        max-width: 100% !important;
+    }
+}
+
+.modern-doc-card {
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+/* ==========================================================================
+   Service Cards Flexbox Grid (Resolves awkward float hanging & uneven gaps)
+   ========================================================================== */
+.service-cards-grid {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    margin-right: -10px !important;
+    margin-left: -10px !important;
+}
+
+.service-cards-grid::before,
+.service-cards-grid::after {
+    display: none !important;
+}
+
+.service-card-item {
+    flex: 0 0 33.333333% !important;
+    max-width: 33.333333% !important;
+    width: 33.333333% !important;
+    padding: 0 10px !important;
+    margin-bottom: 20px !important;
+    display: flex !important;
+    box-sizing: border-box !important;
+    float: none !important;
+}
+
+@media (max-width: 1199px) and (min-width: 768px) {
+    .service-card-item {
+        flex: 0 0 50% !important;
+        max-width: 50% !important;
+        width: 50% !important;
+    }
+}
+
+@media (max-width: 767px) {
+    .service-card-item {
+        flex: 0 0 100% !important;
+        max-width: 100% !important;
+        width: 100% !important;
+    }
+}
+
+.service-card-item .serv {
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    height: 100% !important;
+    margin-bottom: 0 !important;
+    box-sizing: border-box !important;
+}
+
+/* ==========================================================================
+   Footer Logo Badge (Crystal Clear on Dark Background)
+   ========================================================================== */
+.footer-logo-badge {
+    background: #ffffff !important;
+    padding: 8px 18px !important;
+    border-radius: 12px !important;
+    display: inline-block !important;
+    margin-bottom: 20px !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3) !important;
+}
+
+.footer-logo-badge img {
+    max-height: 42px !important;
+    width: auto !important;
+    display: block !important;
+}
+
+/* ==========================================================================
+   Modern Contact Us & Send Message Section
+   ========================================================================== */
+.contact-info-card {
+    background: #ffffff;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-color);
+    padding: 30px;
+    box-shadow: var(--shadow-sm);
+    height: 100%;
+}
+
+.contact-card-header h3 {
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--text-heading);
+    margin-bottom: 6px;
+}
+
+.contact-card-header p {
+    color: var(--text-muted);
+    font-size: 13.5px;
+    margin-bottom: 25px;
+}
+
+.contact-method-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 16px;
+    border-radius: var(--radius-md);
+    background: #f8fafc;
+    margin-bottom: 14px;
+    border: 1px solid var(--border-color);
+    transition: all 0.2s ease;
+}
+
+.contact-method-item:hover {
+    background: #ffffff;
+    box-shadow: var(--shadow-sm);
+    border-color: #cbd5e1;
+}
+
+.contact-method-item.emergency-highlight {
+    background: #fef2f2;
+    border-color: #fecaca;
+}
+
+.contact-method-item.emergency-highlight .method-icon {
+    background: #ef4444;
+    color: #ffffff;
+}
+
+.method-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-md);
+    background: var(--primary-light);
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+}
+
+.method-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.method-label {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 2px;
+}
+
+.method-value {
+    font-size: 14.5px;
+    font-weight: 600;
+    color: var(--text-heading);
+    text-decoration: none !important;
+}
+
+.contact-form-card {
+    background: #ffffff;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-color);
+    padding: 35px 30px;
+    box-shadow: var(--shadow-md);
+}
+
+.form-card-header h3 {
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--text-heading);
+    margin-bottom: 6px;
+}
+
+.contact-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #475569;
+    margin-bottom: 6px;
+    display: block;
+}
+
+.modern-input {
+    border-radius: 10px !important;
+    border: 1.5px solid #d9e2ec !important;
+    background: #fafbfc !important;
+    height: 46px !important;
+    padding: 8px 14px !important;
+    font-size: 14px !important;
+    color: #0f172a !important;
+    box-shadow: none !important;
+    transition: all 0.2s ease !important;
+}
+
+textarea.modern-input {
+    height: auto !important;
+}
+
+.modern-input:focus {
+    background: #ffffff !important;
+    border-color: #0071d1 !important;
+    box-shadow: 0 0 0 3px rgba(0, 113, 209, 0.15) !important;
+}
+
+.btn-send-message {
+    background: linear-gradient(135deg, #0071d1 0%, #0056a3 100%);
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 700;
+    border: none;
+    padding: 12px 35px;
+    border-radius: var(--radius-full);
+    box-shadow: 0 6px 18px rgba(0, 113, 209, 0.3);
+    cursor: pointer;
+    transition: all 0.25s ease;
+    display: inline-flex;
+    align-items: center;
+}
+
+.btn-send-message:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 113, 209, 0.4);
+}
+
+.map-wrapper-card {
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--border-color);
+}
+
+/* ==========================================================================
+   Appointment Form & Universal Modal Overrides
+   ========================================================================== */
+.appointment-form-box {
+    width: 100% !important;
+}
+
+#bookOpdModal .modal-content {
+    border-radius: 16px !important;
+    border: none !important;
+}
+
+#bookOpdModal .appointment-form {
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+}
+
+#bookOpdModal .appointment-form h3 {
+    display: none !important;
+}
+
+/* ==========================================================================
+   Department Cards Flexbox Grid (Fixes hanging cards & uneven rows)
+   ========================================================================== */
+.department-cards-grid {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    margin-right: -12px !important;
+    margin-left: -12px !important;
+}
+
+.department-cards-grid::before,
+.department-cards-grid::after {
+    display: none !important;
+}
+
+.dept-card-item {
+    flex: 0 0 33.333333% !important;
+    max-width: 33.333333% !important;
+    width: 33.333333% !important;
+    padding: 0 12px !important;
+    margin-bottom: 24px !important;
+    display: flex !important;
+    box-sizing: border-box !important;
+    float: none !important;
+}
+
+@media (max-width: 991px) and (min-width: 576px) {
+    .dept-card-item {
+        flex: 0 0 50% !important;
+        max-width: 50% !important;
+        width: 50% !important;
+    }
+}
+
+@media (max-width: 575px) {
+    .dept-card-item {
+        flex: 0 0 100% !important;
+        max-width: 100% !important;
+        width: 100% !important;
+    }
+}
+
+.dept-card-item .modern-dept-card {
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    height: 100% !important;
+}
+
+/* ==========================================================================
+   Comprehensive Professional Multi-Device Responsiveness (Mobile, Tablet, Desktop)
+   ========================================================================== */
+
+/* 1. Global Viewport Safety: Prevent any accidental horizontal overflow */
+html, body {
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+}
+
+img {
+    max-width: 100% !important;
+    height: auto;
+}
+
+/* 2. Tablets & Small Laptops (768px - 991px) */
+@media (max-width: 991px) {
+    .section {
+        padding: 50px 0 !important;
+    }
+    .heading {
+        margin-bottom: 35px !important;
+    }
+    .heading h2 {
+        font-size: 28px !important;
+    }
+    .time-table-section {
+        padding-top: 15px !important;
+    }
+    .service-time {
+        min-height: auto !important;
+        margin-top: 20px !important;
+        padding: 30px 24px !important;
+        border-radius: var(--radius-md) !important;
+    }
+    .appointment-form {
+        margin-top: 30px !important;
+    }
+    .footer-area {
+        padding: 50px 0 20px 0 !important;
+    }
+}
+
+/* 3. Mobile Screens (under 768px) */
+@media (max-width: 767px) {
+    .section {
+        padding: 38px 0 !important;
+    }
+    .container {
+        padding-left: 16px !important;
+        padding-right: 16px !important;
+    }
+    .heading {
+        margin-bottom: 28px !important;
+    }
+    .heading h2 {
+        font-size: 24px !important;
+        letter-spacing: -0.3px !important;
+        line-height: 1.25 !important;
+    }
+    .heading p.lead {
+        font-size: 14.5px !important;
+        line-height: 1.55 !important;
+        padding: 0 4px !important;
+    }
+    .heading .icon-logo img {
+        height: 32px !important;
+    }
+    /* Hero / Slider on Home */
+    .first-section {
+        padding: 60px 0 40px 0 !important;
+        min-height: auto !important;
+    }
+    .text-contant h2 {
+        font-size: 22px !important;
+        line-height: 1.3 !important;
+    }
+    .typewrite {
+        font-size: 19px !important;
+    }
+    /* Home timetable cards stack cleanly */
+    .service-time {
+        margin-top: 14px !important;
+        padding: 24px 18px !important;
+    }
+    .service-time h3 {
+        font-size: 18px !important;
+    }
+    .info-icon {
+        font-size: 45px !important;
+        margin-bottom: 12px !important;
+    }
+    /* Message box */
+    .message-box {
+        padding: 10px 0 20px 0 !important;
+    }
+    .message-box h2 {
+        font-size: 22px !important;
+        line-height: 1.3 !important;
+    }
+    .message-box p.lead {
+        font-size: 14.5px !important;
+    }
+    /* Appointment form mobile styling */
+    .appointment-form {
+        padding: 22px 18px !important;
+        border-radius: var(--radius-md) !important;
+    }
+    .appointment-form h3 {
+        font-size: 20px !important;
+        margin-bottom: 18px !important;
+    }
+    /* Contact page cards stack */
+    .contact-info-card,
+    .contact-form-card {
+        padding: 22px 18px !important;
+        border-radius: var(--radius-md) !important;
+    }
+    .contact-method-item {
+        padding: 12px !important;
+    }
+    /* Footer stacking */
+    .footer-area {
+        padding: 40px 0 20px 0 !important;
+        text-align: left !important;
+    }
+    .footer-logo-badge {
+        margin-bottom: 14px !important;
+    }
+}
+
+/* 4. Small Mobile Phones (under 576px) */
+@media (max-width: 575px) {
+    .heading h2 {
+        font-size: 22px !important;
+    }
+    .doc-img-wrap {
+        height: 260px !important;
+    }
+    .doc-body {
+        padding: 16px !important;
+    }
+    .doc-name {
+        font-size: 17px !important;
+    }
+    .doc-actions {
+        flex-direction: column !important;
+        gap: 8px !important;
+    }
+    .btn-doc-call,
+    .btn-doc-book {
+        width: 100% !important;
+        text-align: center !important;
+        padding: 10px 14px !important;
+        font-size: 13.5px !important;
+        display: block !important;
+    }
+    .serv {
+        padding: 20px 16px !important;
+        border-radius: var(--radius-md) !important;
+    }
+    .serv h4 {
+        font-size: 15px !important;
+    }
+    .dept-img-wrap {
+        height: 180px !important;
+    }
+    .dept-body {
+        padding: 18px 16px !important;
+    }
+    .dept-title {
+        font-size: 18px !important;
+    }
+    .btn-send-message {
+        width: 100% !important;
+        text-align: center !important;
+        justify-content: center !important;
+    }
+}
+

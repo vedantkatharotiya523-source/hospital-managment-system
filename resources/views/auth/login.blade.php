@@ -92,17 +92,6 @@
                                 </button>
                             </div>
                         </form>
-
-                        <!-- Quick Demo Credentials Box -->
-                        <div class="demo-box mt-4">
-                            <div class="demo-header">
-                                <i class="fa fa-key mr-1"></i> <strong>Default Admin Credentials</strong>
-                            </div>
-                            <div class="demo-content">
-                                <div><strong>Email:</strong> <code>admin@hospital.com</code></div>
-                                <div><strong>Password:</strong> <code>admin123</code></div>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -111,11 +100,11 @@
 </div>
 
 <style>
-    /* Prevent Fixed Navbar Overlap */
+    /* In-flow Sticky Navbar Spacing */
     .login-wrapper {
-        padding-top: 190px;
-        padding-bottom: 90px;
-        min-height: 85vh;
+        padding-top: 50px;
+        padding-bottom: 70px;
+        min-height: calc(85vh - 100px);
         background: linear-gradient(135deg, #f0f5fa 0%, #e8f1f8 100%);
         display: flex;
         align-items: center;
@@ -123,8 +112,8 @@
 
     @media (max-width: 991px) {
         .login-wrapper {
-            padding-top: 240px;
-            padding-bottom: 60px;
+            padding-top: 40px;
+            padding-bottom: 50px;
         }
     }
 

@@ -136,43 +136,43 @@
     <div class="container">
        <div class="row">
           <div class="col-lg-8 col-md-8 col-sm-6 col-xs-12">
-             <div class="inner-services">
-                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+             <div class="service-cards-grid">
+                <div class="service-card-item">
                    <div class="serv">
                       <span class="icon-service"><img src="images/service-icon1.png" alt="#" /></span>
                       <h4>PREMIUM FACILITIES</h4>
                       <p>Lorem Ipsum is simply dummy text of the printing.</p>
                    </div>
                 </div>
-                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                <div class="service-card-item">
                    <div class="serv">
                       <span class="icon-service"><img src="images/service-icon2.png" alt="#" /></span>
                       <h4>LARGE LABORATORY</h4>
                       <p>Lorem Ipsum is simply dummy text of the printing.</p>
                    </div>
                 </div>
-                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                <div class="service-card-item">
                    <div class="serv">
                       <span class="icon-service"><img src="images/service-icon3.png" alt="#" /></span>
                       <h4>DETAILED SPECIALIST</h4>
                       <p>Lorem Ipsum is simply dummy text of the printing.</p>
                    </div>
                 </div>
-                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                <div class="service-card-item">
                    <div class="serv">
                       <span class="icon-service"><img src="images/service-icon4.png" alt="#" /></span>
                       <h4>CHILDREN CARE CENTER</h4>
                       <p>Lorem Ipsum is simply dummy text of the printing.</p>
                    </div>
                 </div>
-                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                <div class="service-card-item">
                    <div class="serv">
                       <span class="icon-service"><img src="images/service-icon5.png" alt="#" /></span>
                       <h4>FINE INFRASTRUCTURE</h4>
                       <p>Lorem Ipsum is simply dummy text of the printing.</p>
                    </div>
                 </div>
-                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                <div class="service-card-item">
                    <div class="serv">
                       <span class="icon-service"><img src="images/service-icon6.png" alt="#" /></span>
                       <h4>ANYTIME BLOOD BANK</h4>
@@ -181,7 +181,9 @@
                 </div>
              </div>
           </div>
-          @livewire('appointmentform')
+          <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+              @livewire('appointmentform')
+          </div>
        </div>
     </div>
  </div>
