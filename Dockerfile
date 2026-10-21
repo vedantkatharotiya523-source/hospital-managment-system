@@ -24,8 +24,12 @@ COPY . .
 # डिपेंडेंसी इंस्टॉल करना
 RUN composer install --no-dev --optimize-autoloader --ignore-platform-reqs
 
-# स्टोरेज फ़ोल्डर को परमिशन देना
-RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
+# स्टोरेज, पब्लिक फ़ोल्डर और कैशे को परमिशन देना
+RUN chown -R www-data:www-data /var/www/html \
+    && chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache \
+    && chmod -R 755 /var/www/html/public \
+    && php artisan storage:link || true \
+    && php artisan config:clear || true
 
 # 🟢 बिना किसी '\n\' के सीधे फ़ाइल लिखना (अपाचे इसे बिल्कुल सही पढ़ेगा)
 RUN printf "<VirtualHost *:10000>\n\

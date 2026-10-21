@@ -7,13 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Admin Laravel</title>
-    <link href="{{ config('app.url') }}assets/vendor/fontawesome/css/fontawesome.min.css" rel="stylesheet">
-    <link href="{{ config('app.url') }}assets/vendor/fontawesome/css/solid.min.css" rel="stylesheet">
-    <link href="{{ config('app.url') }}assets/vendor/fontawesome/css/brands.min.css" rel="stylesheet">
-    <link href="{{ config('app.url') }}assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="{{ config('app.url') }}assets/css/master.css" rel="stylesheet">
-    {{-- <link href="{{  config('app.url') }}assets/vendor/chartsjs/Chart.min.css" rel="stylesheet"> --}}
-    <link href="{{ config('app.url') }}assets/vendor/flagiconcss/css/flag-icon.min.css" rel="stylesheet">
+    <link href="{{ asset('assets/vendor/fontawesome/css/fontawesome.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/vendor/fontawesome/css/solid.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/vendor/fontawesome/css/brands.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/css/master.css') }}" rel="stylesheet">
+    {{-- <link href="{{ asset('assets/vendor/chartsjs/Chart.min.css') }}" rel="stylesheet"> --}}
+    <link href="{{ asset('assets/vendor/flagiconcss/css/flag-icon.min.css') }}" rel="stylesheet">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -142,12 +142,12 @@
 
     @yield('admin_gest_content')
     @livewireScripts
-    <script src="{{ config('app.url') }}js/alpine.js"></script>
-    <script src="{{ config('app.url') }}assets/vendor/jquery/jquery.min.js"></script>
-    <script src="{{ config('app.url') }}assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    {{-- <script src="{{  config('app.url') }}assets/vendor/chartsjs/Chart.min.js"></script> --}}
-    {{-- <script src="{{  config('app.url') }}assets/js/dashboard-charts.js"></script> --}}
-    <script src="{{ config('app.url') }}assets/js/script.js"></script>
+    <script src="{{ asset('js/alpine.js') }}"></script>
+    <script src="{{ asset('assets/vendor/jquery/jquery.min.js') }}"></script>
+    <script src="{{ asset('assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    {{-- <script src="{{ asset('assets/vendor/chartsjs/Chart.min.js') }}"></script> --}}
+    {{-- <script src="{{ asset('assets/js/dashboard-charts.js') }}"></script> --}}
+    <script src="{{ asset('assets/js/script.js') }}"></script>
 </body>
 
 </html>

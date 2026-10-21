@@ -57,7 +57,7 @@
 
     <!-- LOADER -->
     <div id="preloader">
-        <a href="{{ url('/') }}"><img class="preloader" src="{{ config('app.url') }}images/loaders/heart-loading2.gif" alt=""></a>
+        <a href="{{ url('/') }}"><img class="preloader" src="{{ asset('images/loaders/heart-loading2.gif') }}" alt=""></a>
     </div>
     <!-- END LOADER -->
     <header>
