@@ -32,7 +32,7 @@ class AppServiceProvider extends ServiceProvider
         \Illuminate\Support\Facades\View::composer('*', function ($view) {
             try {
                 if (\Illuminate\Support\Facades\Schema::hasTable('settings')) {
-                    $settings = \App\Models\settings::pluck('value', 'key')->toArray();
+                    $settings = \App\Models\Settings::pluck('value', 'key')->toArray();
                     $logoUrl = isset($settings['logo']) && $settings['logo'] && file_exists(public_path('storage/' . $settings['logo']))
                         ? asset('storage/' . $settings['logo'])
                         : (isset($settings['logo']) && file_exists(public_path('images/' . $settings['logo']))
